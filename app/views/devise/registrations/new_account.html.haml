@@ -1,22 +1,56 @@
-%h2 本人確認
-= form_for @account do |f|
-  = render "devise/shared/error_messages", resource: @account
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :family_name
-    = f.text_field :family_name
-  .field
-    = f.label :hurigana_first
-    = f.text_field :hurigana_first
-  .field
-    = f.label :hurigana_family
-    = f.text_field :hurigana_family
-  .field
-    = f.label :birthday
-    %br/
-    = f.date_select :birthday
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.Single
+  .Single_header
+    %h1.Single_header_icon
+      =link_to image_tag("/assets/images/logo.png",alt:"flema",class:"icon_img"),"/"
+    %nav.Single_header_singup_bar
+      %ol.clearfix
+        %li.active
+          会員情報
+        .progress_statrs
+  .Single_main
+    %section.Single_main_container
+      %h2.Single_main_container_head
+        本人確認情報入力
+      .Single_main_container_warrap
+        .Single_main_container_warrap_content
+          = form_for(@account, html: {class: "Single_main_container_warrap_content_group"}) do |f|
+            .Form_info
+              %label.Form_info_name
+                お名前(全角)
+              %span.Form_info_require
+                必須
+            = f.text_field :first_name, class: "Form_info_index-two", placeholder: "例）鈴木"
+            = f.text_field :family_name, class: "Form_info_index-two", placeholder: "例）太朗"
+            %ul.has_error_test
+              %li.has_error
+                = @account.errors.full_messages_for(:first_name).first
+              %li.has_error
+                = @account.errors.full_messages_for(:family_name).first
+            .Form_info
+              %label.Form_info_name
+                ふりがな(全角)
+              %span.Form_info_require
+                必須
+            = f.text_field :hurigana_first, class: "Form_info_index-two", placeholder: "例）すずき"
+            = f.text_field :hurigana_family, class: "Form_info_index-two", placeholder: "例）たろう"
+            %ul.has_error_test
+              %li.has_error
+                = @account.errors.full_messages_for(:hurigana_first).first
+              %li.has_error
+                = @account.errors.full_messages_for(:hurigana_family).first
+            .Form_info
+              = f.label :birthday, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+              = f.date_select :birthday
+            %ul.has_error_test
+              %li.has_error
+                = @account.errors.full_messages_for(:birthday).first
+            %p.Form_info_times
+              ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+            .Single_main_container_warrap_content_group
+              = f.submit "登録", class: "Single_main_container_warrap_content_group_submit-btn"
+  .Single_footer
+    =link_to image_tag("/assets/images/logo-white.png",alt:"flema",class:"icon_imgRight"),"/"
+    %p.Single_footer_logo-text
+      ©︎Furima, Inc

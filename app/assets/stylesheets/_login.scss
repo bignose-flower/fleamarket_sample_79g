@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+.AccountPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  &__header {
+    font-size: 20px;
+    font-weight: bold;
+    &__box{
+      padding: 40px;
+      text-align: center;;
+    }
+  }  
+}
+
+
+.login{
+  background-color: #fff;
+  width: 450px;
+  justify-content: center;
+  height: 150px;
+  margin: 0 auto;
+  margin-bottom: 2px;
+  &__nobtn {
+    width: 325px;
+    margin-left: 60px;
+  }
+  &__notitle{
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    
+  }
+}
+
+.Form__submitBtn{
+  height: 45px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  display: block;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #40e0d0;
+  line-height: 45px;
+}
+
+
+.Main{
+  width: 450px;
+  justify-content: center;
+  height: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  &__title {
+    font-size: 20px;
+    font-weight: 200;
+    padding-top: 30px;
+    text-align: center;
+  }
+}
+.Form-contents{
+  width: 325px;
+  margin: 30px 60px 60px 60px;
+  &__email {
+    height: 44px;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid lightslategray;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    padding-left: 20px;
+  }
+  &__password {
+    width: 100%;
+    height: 44px;
+    font-size: 14px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    border: 1px solid lightslategray;  
+    padding-left: 20px;
+  }
+  &__submitBtn{
+    width: 100%;
+    display: block;
+    height: 45px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+    line-height: 48px;
+    text-align: center;
+    background-color: #40e0d0;
+  }
+}
+
+.single__footer{
+  background-color: #f5f5f5;
+}

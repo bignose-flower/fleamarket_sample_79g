@@ -24,7 +24,7 @@ class Address < ApplicationRecord
     validates :shipping_family_name, allow_blank: true
   end
 
-  validates :phone_number, format: {with: /\A\d{10}\z/ || /\A\d{10,11}\z/, message: "は-(ハイフン)無しで入力してください"}, allow_blank: true
+  validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "は-(ハイフン)無しで入力してください"}, allow_blank: true
 
   belongs_to :user, optional: true
 end

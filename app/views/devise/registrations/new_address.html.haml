@@ -1,40 +1,95 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :shipping_first_name
-    = f.text_field :shipping_first_name
-  .field
-    = f.label :shipping_family_name
-    = f.text_field :shipping_family_name
-  .field
-    = f.label :shipping_hurigana_first
-    = f.text_field :shipping_hurigana_first
-  .field
-    = f.label :shipping_hurigana_family
-    = f.text_field :shipping_hurigana_family
-  .field
-    = f.label :zipcode
-    = f.text_field :zipcode
-  .field
-    = f.label :prefecture
-    = f.text_field :prefecture
-  .field
-    = f.label :city
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :address
-    %br/
-    = f.text_field :address
-  .field
-    = f.label :others
-    %br/
-    = f.text_field :others
-  .field
-    = f.label :phone_number
-    %br/
-    = f.text_field :phone_number
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
+.Single
+  .Single_header
+    %h1.Single_header_icon
+      = link_to image_tag("/assets/images/logo.png",alt:"flema",class:"icon_img"),"/"
+    %nav.Single_header_singup_bar
+      %ol.clearfix
+        %li.active
+          会員情報
+        .progress_statrs
+  .Single_main
+    %section.Single_main_container
+      %h2.Single_main_container_head
+        商品送付先住所情報
+      .Single_main_container_warrap
+        .Single_main_container_warrap_content
+          = form_for(@address, html: {class: "Single_main_container_warrap_content_group"}) do |f|
+            .Form_info
+              %label.Form_info_name
+                送付先氏名（全角）
+              %span.Form_info_require
+                必須
+            = f.text_field :shipping_first_name, class: "Form_info_index-two", placeholder: "例）鈴木"
+            = f.text_field :shipping_family_name, class: "Form_info_index-two", placeholder: "例）太郎"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:shipping_first_name).first
+              %li.has_error
+                = @address.errors.full_messages_for(:shipping_family_name).first
+            .Form_info
+              %label.Form_info_name
+                送付先氏名(全角)
+              %span.Form_info_require
+                必須
+            = f.text_field :shipping_hurigana_first, class: "Form_info_index-two", placeholder: "例）すずき"
+            = f.text_field :shipping_hurigana_family, class: "Form_info_index-two", placeholder: "例）たろう"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:shipping_hurigana_first).first
+              %li.has_error
+                = @address.errors.full_messages_for(:shipping_hurigana_family).first
+            .Form_info
+              = f.label :zipcode, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+            = f.text_field :zipcode, class: "Form_info_index-two", placeholder: "(-)ハイフン無しで記入"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:zipcode).first
+            .Form_info
+              %label.Form_info_name
+                都道府県
+              %span.Form_info_require
+                必須
+            = f.text_field :prefecture, class: "Form_info_index-two", placeholder: "例) ○○県"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:prefecture).first
+            .Form_info
+              = f.label :city, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+            = f.text_field :city, class: "Form_info_index", placeholder: "例）○ ○市"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:city).first
+            .Form_info
+              = f.label :address, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+            = f.text_field :address, class: "Form_info_index", placeholder: "例）○ ○番地"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:address).first
+            .Form_info
+              = f.label :others, class: "Form_info_name"
+              %span.Form_info_require
+                任意
+            = f.text_field :others, class: "Form_info_index", placeholder: "例）○ビル○番"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:others).first
+            .Form_info
+              = f.label :phone_number, class: "Form_info_name"
+              %span.Form_info_require
+                任意
+            = f.text_field :phone_number, class: "Form_info_index", placeholder: "(-)ハイフン無しで記入"
+            %ul.has_error_test
+              %li.has_error
+                = @address.errors.full_messages_for(:phone_number).first
+            .Single_main_container_warrap_content_group
+              = f.submit "次へ", class: "Single_main_container_warrap_content_group_submit-btn"
+  .Single_footer
+    =link_to image_tag("/assets/images/logo-white.png",alt:"flema",class:"icon_imgRight"),"/"
+    %p.Single_footer_logo-text
+      ©︎Furima, Inc

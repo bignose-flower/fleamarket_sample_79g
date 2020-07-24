@@ -1,0 +1,24 @@
+.AccountPage
+  .AccountPage__header
+    .AccountPage__header__box
+      = image_tag '/assets/images/logo.png', alt: 'furimaのロゴ', height: '100', width: '300'
+  .login
+    .login__notitle
+      アカウントをお持ちでない方はこちら
+    .login__nobtn
+      = link_to "新規会員登録", '/users/sign_up', class:"Form__submitBtn"
+  .Main
+    .Main__title
+      ログイン
+    .Main__form
+      - if alert
+        #error_explanation
+          .error-box__message= alert
+      = form_with model: @user, url: user_session_path, local: true do |f|
+        .Form-contents
+          .Form-contents__email
+            = f.email_field :email, autofocus: true, placeholder: "メールアドレス"
+          .Form-contents__password
+            = f.password_field :password, placeholder: "パスワード"
+          = f.submit "ログイン", class: "Form-contents__submitBtn"
+  .single__footer

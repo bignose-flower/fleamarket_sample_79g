@@ -49,6 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"]["user"].clear
     session["address"].clear
     sign_in(:user, @user)
+    redirect_to root_path
   end
 
   # GET /resource/edit

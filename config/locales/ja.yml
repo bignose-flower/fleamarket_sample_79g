@@ -14,22 +14,22 @@ ja:
       user:
         nickname: ニックネーム
       address:
-        shipping_first_name: 名前
-        shipping_family_name: 苗字
-        shipping_hurigana_first: ふりがな（名前）
-        shipping_hurigana_family: ふりがな（苗字）
+        shipping_first_name: 名
+        shipping_family_name: 性
+        shipping_hurigana_first: 名
+        shipping_hurigana_family: 性
         zipcode: 郵便番号
         prefecture: 県名
         city: 市区町村
         address: 番地
-        others: マンション名
+        others: マンション名、その他部屋番号など
         phone_number: 電話番号
       account:
-        first_name: 名前
-        family_name: 苗字
-        hurigana_first: ふりがな（名前）
-        hurigana_family: ふりがな（苗字）
-        birthday: 誕生日 
+        first_name: 名
+        family_name: 性
+        hurigana_first: 名
+        hurigana_family: 性
+        birthday: 生年月日
   date:
     abbr_day_names:
     - 日

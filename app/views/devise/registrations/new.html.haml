@@ -1,21 +1,54 @@
-%h2 ユーザー情報登録
-= form_for(@user, url: user_registration_path) do |f|
-  = render "devise/shared/error_messages", resource: @user
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Next"
-= render "devise/shared/links"
+.Single
+  .Single_header
+    %h1.Single_header_icon
+      =link_to image_tag("/assets/images/logo.png",alt:"flema",class:"icon_imgHead"),"/"
+    %nav.Single_header_singup_bar
+      %ol.clearfix
+        %li.active
+          会員情報
+        .progress_statrs
+  .Single_main
+    %section.Single_main_container
+      %h2.Single_main_container_head
+        ユーザー情報入力
+      .Single_main_container_warrap
+        .Single_main_container_warrap_content
+          = form_for(@user, url: user_registration_path, html: { class: "Single_main_container_warrap_content_group"}) do |f|
+            .Form_info
+              = f.label :nickname, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+            = f.text_field :nickname,  class: "Form_info_index", placeholder: "例）フリマ太朗"
+            %ul.has_error_test
+              %li.has_error
+                = @user.errors.full_messages_for(:nickname).first
+            .Form_info
+              = f.label :email, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+            = f.email_field :email, { class: "Form_info_index", placeholder: "PC・携帯とちらでも可", autocomplete: "email"}
+            %ul.has_error_test
+              %li.has_error_mail
+                = @user.errors.full_messages_for(:email).first
+            .Form_info
+              = f.label :password, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+            = f.password_field :password, class: "Form_info_index", placeholder: "7文字以上の半角数字"
+            %ul.has_error_test
+              %li.has_error_password
+                = @user.errors.full_messages_for(:password).first
+            .Form_info
+              = f.label :password_confirmation, class: "Form_info_name"
+              %span.Form_info_require
+                必須
+            = f.password_field :password_confirmation, class: "Form_info_index", placeholder: "再確認用"
+            %ul.has_error_test
+              %li.has_error_password
+                = @user.errors.full_messages_for(:password_confirmation).first
+            .Single_main_container_warrap_content_group
+              = f.submit "次へ", class: "Single_main_container_warrap_content_group_submit-btn"
+  .Single_footer
+    =link_to image_tag("/assets/images/logo-white.png",alt:"flema",class:"icon_imgRight"),"/"
+    %p.Single_footer_logo-text
+      ©︎Furima, Inc

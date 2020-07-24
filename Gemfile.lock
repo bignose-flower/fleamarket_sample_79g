@@ -321,7 +321,6 @@ DEPENDENCIES
   capistrano3-unicorn
   capybara (>= 2.15)
   devise
-  font-awesome-sass
   factory_bot_rails
   faker
   font-awesome-sass

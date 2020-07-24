@@ -1,0 +1,79 @@
+.toppage
+  .toppage__header
+    .header__logo
+      = link_to image_tag("/assets/logo.png", alt: "furima", class: "Header__logo-inner"), "#"
+    .header__signup
+      = link_to '/', class: "" do
+    .header__login
+      = link_to '/', class: "" do
+  %ul
+    %li
+      = link_to '/',class: "home" do
+    %li
+      = link_to '/',class: "category1" do
+    %li
+      = link_to '/',class: "category2" do
+    %li
+      = link_to '/',class: "category3" do
+    %li
+      = link_to '/',class: "crrent" do
+
+
+  .toppage__main
+    .main__title 
+      %h1 @item.id
+    .main__image
+      = link_to '/',
+    .price
+      %h2 items.price
+    .main__text
+      = f.text_field content, {}
+    %ul.item_details
+      %li
+        = link_to '/',class: "exhibitor" do
+          出品者
+      %li
+        = link_to '/',class: "category1" do
+        = link_to '/',class: "category2" do
+        = link_to '/',class: "category3" do
+          カテゴリー
+      %li
+        = link_to '/',class: "brand" do
+          ブランド
+   
+      %li.item_size
+        商品のサイス
+      %li.item_status
+        商品の状態
+      %li.burden
+        配送料の負担
+      %li
+        = link_to '/',class: "area" do
+        配送元地域
+      %li.date-of-shipment
+        発送日の目安
+
+    %ul
+      %li
+        = f.submit "", class:""
+        ★お気に入り
+      %li
+        = link_to '/',class: "" do
+        🏴不適切な商品の通報
+    
+    .main_chat__form
+      = form_with model:[], html: {class: ""}, local:true do |f|
+        .Form_content
+          = f.text_field :content, class: 'Form__text', placeholder: ''
+        .Form_commet
+          相手のことを考え丁寧なコメントを心がけましょう。
+          不愉快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.submit "コメントする", class:"comment_submitbtn"
+    %ul.items
+      %li
+        = link_to '/',class: "before" do
+        < 前の商品
+        = link_to '/',class: "after" do
+        後ろの商品＞
+    .category1_items
+      = link_to '/',class: "category1_form" do

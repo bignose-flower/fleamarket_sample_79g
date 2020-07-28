@@ -1,79 +1,181 @@
-.toppage
-  .toppage__header
-    .header__logo
+.detail
+  .detail__header
+    .Header
       = link_to image_tag("/assets/logo.png", alt: "furima", class: "Header__logo-inner"), "#"
-    .header__signup
-      = link_to '/', class: "" do
-    .header__login
-      = link_to '/', class: "" do
-  %ul
-    %li
-      = link_to '/',class: "home" do
-    %li
-      = link_to '/',class: "category1" do
-    %li
-      = link_to '/',class: "category2" do
-    %li
-      = link_to '/',class: "category3" do
-    %li
-      = link_to '/',class: "crrent" do
-
-
-  .toppage__main
-    .main__title 
-      %h1 @item.id
-    .main__image
-      = link_to '/',
-    .price
-      %h2 items.price
-    .main__text
-      = f.text_field content, {}
-    %ul.item_details
-      %li
-        = link_to '/',class: "exhibitor" do
-          出品者
-      %li
-        = link_to '/',class: "category1" do
-        = link_to '/',class: "category2" do
-        = link_to '/',class: "category3" do
-          カテゴリー
-      %li
-        = link_to '/',class: "brand" do
-          ブランド
-   
-      %li.item_size
-        商品のサイス
-      %li.item_status
-        商品の状態
-      %li.burden
-        配送料の負担
-      %li
-        = link_to '/',class: "area" do
-        配送元地域
-      %li.date-of-shipment
-        発送日の目安
-
-    %ul
-      %li
-        = f.submit "", class:""
-        ★お気に入り
-      %li
-        = link_to '/',class: "" do
-        🏴不適切な商品の通報
+      .Search
+        = form_with(url: "#", method: :get, class: "Header__search-inner") do |f|
+          .Search__box
+            =f.text_field :keyword, placeholder: "キーワードから探す", class: "Search__field"
+            =f.label :keyword do
+              = f.submit "検索",style: "display: none"
+              = icon('fas', 'search', class: "Search__icon")
+    .Header__nav
+      .Header__items
+        .Header__category
+          %ul.Dropdwn
+            %li.Dropdwn__list-top
+              カテゴリー
+              %ul.Dropdwn__menu
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    レディース
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    メンズ
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    ベビー・キッズ
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    インテリア・住まい・小物
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    本・音楽・ゲーム
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    おもちゃ・ホビー・グッズ
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    コスメ・香水・美容
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    家電・スマホ・カメラ
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    スポーツ・レジャー
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    ハンドメイド
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    チケット
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    自動車・オートバイ
+                %li
+                  = link_to '/',class: "Dropdwn__list" do
+                    その他
+          = link_to "/", class: "Dropdwn__list-top" do
+            ブランド
+        .Header__user-log
+          = link_to "/", class: "Header__list-right" do
+            ログイン
+          = link_to "/", class: "Header__list-right" do
+            新規登録画面
+  .details
+    %ul.details_lists
+      %li.details_list
+        = link_to '/',class: "detail_list" do
+          メンズ
+      %li.details_list
+        = link_to '/',class: "fa" do
+          > 
+      %li.details_list
+        = link_to '/',class: "detail_list" do
+          ジャケットアウター
+      %li.details_list
+        = link_to '/',class: "fa" do
+          > 
+      %li.details_list
+        = link_to '/',class: "detail_list" do
+          ノーカラージャケット
+      %li.details_list
+        = link_to '/',class: "fa" do
+          >       
+      %li.details_list
+        = link_to '/',class: "detail_list" do
+          product2
     
+  .detail__main
+    .detail_main__box
+      .detail__title 
+        %h1 product2
+      .detail__image
+        = link_to "/", alt: "furima_item" 
+        %ul.other__images
+          %li.image
+        = link_to "/", alt: "furima_item" 
+        = link_to "/", alt: "furima_item" 
+        = link_to "/", alt: "furima_item" 
+
+      .items__price
+        %h2 ¥20000
+        %p (税込)送料込み
+      .item__text
+        親譲りの無鉄砲で小供の時から損ばかりしている。
+        小学校に居る時分学校の二階から飛び降りて一週間
+        ほど腰を抜かした事がある。なぜそんな無闇をした
+        と聞く人があるかも知れぬ。別段深い理由でもない。
+        新築の二階から首を出していたら、同級生の一人が冗
+        談に、いくら威張っても、そこから飛び降りる事は
+        出来まい。弱虫やーい。と囃したからである。
+        小使に負ぶさって帰って来た時、おやじが大きな眼を
+        して二階ぐらいから飛び降りて腰
+      %table.item_details
+        %tr.item_details
+          %th.item_details__lists
+            出品者
+          %td.detail__content
+            = link_to '/',class: "item__list" 
+        %tr.item_details
+          %th.item_details__lists
+            カテゴリー
+          %td.detail__content
+            = link_to '/',class: "item__list" 
+            = link_to '/',class: "item__list" 
+            = link_to '/',class: "item__list" 
+        %tr.item_details
+          %th.item_details__lists
+            ブランド
+          %td.detail__content
+            = link_to '/',class: "item__list"
+      
+        %tr.item_details
+          %th.item_details__lists
+            商品のサイス
+          %td.detail__content
+        %tr.item_details
+          %th.item_details__lists
+            商品の状態
+          %td.detail__content
+        %tr.item_details
+          %th.item_details__lists
+            配送料の負担
+          %td.detail__content
+        %tr.item_details
+          %th.item_details__lists
+            配送元地域
+          %td.detail__content
+            = link_to '/',class: "item__list" 
+        %tr.item_details
+          %th.item_details__lists
+            発送日の目安
+          %td.detail__content
+      .pagecontents
+        %ul.pagecontent
+          %li.pagecontent__list
+            = link_to '/',class: "left_text" do
+              ★お気に入り
+          %li.pagecontent__list
+            = link_to '/',class: "right_text" do
+              🏴不適切な商品の通報
     .main_chat__form
-      = form_with model:[], html: {class: ""}, local:true do |f|
-        .Form_content
-          = f.text_field :content, class: 'Form__text', placeholder: ''
-        .Form_commet
-          相手のことを考え丁寧なコメントを心がけましょう。
-          不愉快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = f.submit "コメントする", class:"comment_submitbtn"
-    %ul.items
-      %li
-        = link_to '/',class: "before" do
-        < 前の商品
-        = link_to '/',class: "after" do
-        後ろの商品＞
+      = form_with model: @user, url: user_session_path, local: true do |f|
+        = f.password_field :text, placeholder: "", class: "Form_commet"
+      .Form_other
+        相手のことを考え丁寧なコメントを心がけましょう。
+        不愉快な言葉遣いなどは利用制限や退会処分となることがあります。
+      .Form__botton
+        = form_with model: @user, url: user_session_path, local: true do |f|
+          = f.submit "コメントする", class: 'commentBtn'
+    .other__chat
+      %ul.other__items
+        %li.other__left
+          = link_to '/',class: "before" do
+            < 前の商品
+        %li.other__right
+          = link_to '/',class: "after" do
+            後ろの商品＞
     .category1_items
       = link_to '/',class: "category1_form" do
+        メンズをもっと見る

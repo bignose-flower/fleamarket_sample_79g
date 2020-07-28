@@ -19,7 +19,7 @@
 }
 
 
-.login{
+.loginno{
   background-color: #fff;
   width: 450px;
   justify-content: center;
@@ -46,12 +46,12 @@
   display: block;
   font-size: 14px;
   border-radius: 4px;
-  background-color: #40e0d0;
+  background-color: #3CCACE;
   line-height: 45px;
 }
 
 
-.Main{
+.login{
   width: 450px;
   justify-content: center;
   height: 400px;
@@ -63,6 +63,12 @@
     padding-top: 30px;
     text-align: center;
   }
+}
+
+.error-box__message {
+  padding-top: 10px;
+  color: red;
+  text-align: center;
 }
 .Form-contents{
   width: 325px;
@@ -94,7 +100,8 @@
     border-radius: 4px;
     line-height: 48px;
     text-align: center;
-    background-color: #40e0d0;
+    background-color: #3CCACE;
+    border: none;
   }
 }
 

@@ -1,0 +1,231 @@
+
+*{
+  box-sizing: border-box;
+}
+
+.middle-main{
+  background-color: #f8f8f8;
+  width: 100vw; 
+  &__pickupContainer{
+    width: 100%;
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    color: #000;
+    box-sizing: border-box;
+    &__head{
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+      padding-bottom: 80px;
+    &__productBox{
+      height: 307px;
+      width: 100%;
+      font-size: 24px;
+      text-decoration: none;
+      color:#3CCACE;
+      font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+      text-align: center;
+      &__productHead{
+        width: 100%;
+        text-align: center; 
+        &__productLists{
+          margin: 26px auto;
+          display: inline-block;
+          justify-content: space-around;
+          text-align: center;
+          &__productList{
+            height: 245px;
+            width: 220px;
+            float: left;
+            &__productList-image{
+              height: 150px;
+              width: 220px;
+              display: flex;
+              flex-direction: row;
+              align-items: flex-end;
+            &__productList-body{
+              height: 63px;
+              width: 220px;
+              padding: 16px;
+              display: flex;
+              box-sizing: border-box;
+              justify-content: space-between;
+              flex-direction: column;
+              font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+              &__name{
+                height: 24px;
+                width: 220px;
+                font-size: 16px;
+                line-height: 1.5;
+                text-align: left;
+                color: #000;
+              &__price{
+                height: 24px;
+                width: 220px;
+                font-size: 16px;
+                color: #000;
+                display: flex;
+                justify-content: space-between;
+                &__font{
+                  font-size: 16px;
+                  color: #000;
+                }
+              &__tax{
+                height: 15px;
+                width: 220px;
+                font-size: 10px;
+                color:#000;
+                text-align: left;
+                }
+                .i{
+                  display: flex;
+                  justify-content: space-between;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+    }
+  }
+  
+  &__appBanner{
+    height: 359.33px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    font-size: 16px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .appBanner{
+      width: 100vw;
+      height: 359.33px; 
+    }
+    &__inner{
+      height: 159.33px;
+      width: 100vw;
+      flex-direction: column;
+      position: absolute;
+      color: #FFFFFF;
+      &__inner-title{
+        width: 100vw;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.4;
+        text-align: center;
+        color: #FFFFFF;
+      &__inner-text{
+        height: 53;
+        width:100vw;
+        font-size: 35px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        text-align: center;
+        color: #FFFFFF;
+      &__inner-icon{
+        height: 53.33px;
+        width: 100vw;
+        margin: 20px 0 0;
+        text-align: center;
+            }
+          }
+        }
+      }
+    }
+    
+  &__top-footer{
+    height: 354.34px;
+    width: 100%;
+    background-color: #272727;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    &__case{
+      height: 172px;
+      width: 840px;
+      display: flex;
+      color: #FFFFFF;
+      &__break{
+        height: 172px;
+        width: 263.2px;
+        margin: 0 16.7969px 0 0;
+        text-align: center;
+        font-size: 14px;
+        &__footer-title{
+          height: 24px;
+          width: 263.2px;
+          font-size: 16px;
+          margin: 0 0 20px 0;
+          font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        &__outline{
+          height: 32px;
+          width: 263.2px;
+          font-size: 12px;
+        &__privacy{
+          height: 32px;
+          width: 263.2px;
+          font-size: 12px;
+        &__terms{
+          height: 32px;
+          width: 263.2px;
+          font-size: 12px;
+        &__covenant{
+          height: 32px;
+          width: 263.2px;
+          font-size: 12px;
+          text-align: center;
+          flex-direction: column;
+        &__footer-logo{
+          height: 46.34px;
+          width: 100%;
+          text-align: center;
+          .footer-logo{
+            height: 46.34px;
+            width: 160px;
+        &__bottom-logo{
+          height: 16px;
+          width: 100%;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__purchaseBtn{
+      height: 116px;
+      width: 120px;
+      background-color: #3CCACE;
+      border-radius: 4%;
+      bottom: 32px;
+      right: 32px;
+      position: fixed;
+      padding: 15px;
+      text-align: center;
+      &__purchase-text{
+        height: 27px;
+        width: 90px;
+        color:#ffffff;
+        display: block;
+        font-size: 18px;
+        text-decoration: none;
+        margin-bottom: 5px;
+        text-align: center;
+        &__purchase-icon{
+          text-align: center;
+      }
+    }     
+  }
+}    

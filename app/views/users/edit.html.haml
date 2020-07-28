@@ -1,0 +1,60 @@
+.UserDetails
+  .UserDetails__inner
+    .UserDetails__config
+      %ul
+        %li.UserDetails__left-box
+          .UserDetails__parent
+            = link_to edit_user_path, class: "UserDetails__child" do
+              プロフィール変更
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to '/', class: "UserDetails__child" do
+              いいね一覧
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to '/', class: "UserDetails__child" do
+              出品する
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to '/', class: "UserDetails__child" do
+              出品一覧
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to '/', class: "UserDetails__child" do
+              出品売却済
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to '/', class: "UserDetails__child" do
+              購入一覧
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to '/', class: "UserDetails__child" do
+              発送元・お届け先住所変更
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to '/', class: "UserDetails__child" do
+              クレジットカード登録
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+          .UserDetails__parent
+            = link_to destroy_user_session_path, data: { confirm: "本当にログアウトします？"}, method: :delete, class: "UserDetails__child logout" do
+              ログアウト
+              = icon('fas', 'caret-right', class: "UserDetails__icon")
+
+    .UserDetails__mypage
+      = form_with model: @user do |f|
+        %h1.UserDetails__profile プロフィール
+        .UserDetails__right-box
+          = image_tag("/assets/sea.jpeg", alt: "ヘッダー", class: "UserDetails__img")
+          .UserDetails__postion
+            = image_tag("/assets/fox.jpeg", size: "100x100", alt: "ヘッダー", class: "UserDetails__icon")
+            = f.label :nickname, class: "UserDetails__hidden"
+            = f.text_field :nickname, placeholder: "例)foxセール中", class: "UserDetails__edit"
+        .UserDetails__show-box
+          %h1.UserDetails__show-title
+          %p.UserDetails__show-text キ狭義にはキツネ属のことである[1][2]。広義には、明確な定義はないがイヌ亜科の数属を総称する[3][4]が、これは互いに近縁でない属からなる多系統である。
+          最も狭義にはキツネ属の1種アカギツネのことである[5][6]。古来、日本で「狐」といえば、アカギツネの亜種ホンドギツネのことだったが、蝦夷地進出後は、北海道の別亜種キタキツネも含むようになった。
+          ただし、この記事では広義のキツネを扱うものとする。キツネ属、アカギツネについてはそれぞれの記事を参照。
+          = f.submit "変更する", class: 'UserDetails__btn'
+
+
+

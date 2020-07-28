@@ -1,0 +1,58 @@
+.wrapper
+  .Top-Content
+    .Top-Content__logo
+      = image_tag 'logo.png', alt: 'サイトロゴの画像', class: "Top-Content__logo-image"
+  .Confirmation-Content
+    .Confirmation-Content__title
+      %p= "購入内容の確認"
+    %ul.Confirmation-Content__group
+      %li.Confirmation-Content__list
+        .Confirmation-Content__leftfield 
+          .Confirmation-Content__item-image
+            = image_tag 'sample_item.png'
+        .Confirmation-Content__rightfield
+          .Confirmation-Content__item-title
+            = 'サイコロ６面　青、赤、緑、黄４色入り'
+          .Confirmation-Content__item-price
+            = "送料込み(税込み)"
+            %span
+              = "¥5,800"
+      %li.Confirmation-Content__list
+        .Confirmation-Content__leftfield
+          %p= "支払い金額"
+        .Confirmation-Content__rightfield
+          %p= "¥5,800"
+      %li.Confirmation-Content__list
+        .Confirmation-Content__leftfield.CardInfo
+          %p.CardInfo__title
+            = "支払い方法"
+          %ul.CardInfo__lists
+            %li.CardInfo__security-key
+              = "************3333"
+            %li.CardInfo__expired-day
+              = "有効期限 12 / 21"
+            %li.CardInfo__company
+              = image_tag 'visa.png', class: "CardInfo__image"
+          
+        .Confirmation-Content__rightfield
+          = link_to "カードを変更する", '#'
+      %li.Confirmation-Content__list
+        .Confirmation-Content__leftfield.AddressInfo
+          %P.AddressInfo__title
+            = "配送先"
+          %ul.AddressInfo__lists
+            %li.AddressInfo__poscode
+              = "123-4567"
+            %li.AddressInfo__address
+              = "神奈川県　横浜市　○○1-1"
+            %li.AddressInfo__others
+              = "テックキャンプメゾン243号"
+            %li.AddressInfo__name
+              = "フリマ太郎"
+        .Confirmation-Content__rightfield
+          = link_to "配送先を変更する", '#'
+    .ButtonBox
+      %button.Confirmation-Content__btn= "購入する"
+  .Footer-Content
+    = image_tag 'logo.png', alt: 'サイトロゴの画像', class: "Footer-Content__logo-image"
+    %p= "Furima. inc"

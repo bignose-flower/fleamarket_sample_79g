@@ -1,0 +1,51 @@
+= form_with model: @item, method: :post, local: true do |f|
+  = f.label :name
+  = f.text_field :name
+  = @item.errors.full_messages_for(:name).first
+  %br
+  = f.label :description
+  = f.text_field :description
+  = @item.errors.full_messages_for(:description).first
+  %br
+  = f.label :price
+  = f.text_field :price
+  = @item.errors.full_messages_for(:price).first
+  %br
+  = f.label :shipping_fee
+  = f.select :shipping_fee, options_for_select(Item.shipping_fees)
+  = @item.errors.full_messages_for(:shipping_fee).first
+  %br
+  = f.label :owner_area
+  = f.text_field :owner_area, {value: "#{current_user.address.prefecture}"}
+  = @item.errors.full_messages_for(:owner_area).first
+  %br
+  = f.label :shipping_date
+  = f.select :shipping_date, options_for_select(Item.shippings)
+  = @item.errors.full_messages_for(:shipping_date).first
+  %br
+  = f.label :item_status
+  = f.select :item_status, options_for_select(Item.statuses)
+  = @item.errors.full_messages_for(:item_status).first
+  %br
+  = f.hidden_field :seller_id, {value: current_user.id}
+  %br
+  #image-box
+    #previews
+      - if @item.persisted?
+        - @item.images.each_with_index do |image, i|
+          = image_tag image.image.url, data: { index: i}, width: "100", height: "100"
+    = f.label :images
+    = f.fields_for :images do |i|
+      .js-file_group{data: {index: "#{i.index}"}}
+        = i.file_field :image, class: 'js-file'
+        .js-remove= "削除"
+      - if @item.persisted?
+        = image.check_box :_destroy, data: { index: image.index }, class: "hidden-destroy"
+      - if @item.persisted?
+        .js-file_group{data: {index: @item.images.count}}
+          = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+          .js-remove= "削除"
+  = @item.errors.full_messages_for(:images).first
+
+  = f.submit '登録'
+  

@@ -5,5 +5,10 @@ FactoryBot.define do
     email {Faker::Internet.free_email}
     password {password}
     password_confirmation {password}
+    first_name {"名前"}
+    family_name {"苗字"}
+    hurigana_first {"なまえ"}
+    hurigana_family {"みょうじ"}
+    birthday {Faker::Date.birthday}
   end
 end

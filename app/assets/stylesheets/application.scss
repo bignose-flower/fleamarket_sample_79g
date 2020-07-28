@@ -1,8 +1,11 @@
-@import 'login';
+@import "modules/purchase_confirmation";
+// @import "login";
 @import "reset";
 @import "mixin";
 @import "modules/top_content";
+@import "modules/bottom_content";
 @import "registrations";
+@import "modules/user-mypage-show";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "detail";

@@ -1,53 +1,53 @@
-:root{
+:root {
   cursor: auto;
 }
 
-body{
-  // height: 100%;
-  // width: 100%;
-  min-height: 100%;
-  background-color: rgb(235, 235, 235);
-}
-@media screen and (min-width: 768px){
-  .Single{
+// body {
+//   height: 100%;
+//   width: 100%;
+//   min-height: 100%;
+//   background-color: rgb(235, 235, 235);
+// }// 他のファイルにも反映されてビューが崩れてしまうため
+@media screen and (min-width: 768px) {
+  .Single {
     padding: 0 0 220px 0;
-    &_header{
+    &_header {
       display: flex;
       justify-content: space-evenly;
       height: 128px;
       text-align: center;
-      &_icon{
+      &_icon {
         margin-left: 170px;
       }
-      &_singup_bar{
+      &_singup_bar {
         margin-right: 130px;
       }
     }
-    &_main{
+    &_main {
       display: block;
-      &_container{
+      &_container {
         width: 700px;
         margin: 0 auto;
         background-color: white;
 
-        &_head{
+        &_head {
           font-size: 20px;
           font-weight: bold;
           padding: 32px;
           border-bottom: 1px solid rgb(175, 175, 175);
           text-align: center;
         }
-        &_warrap{
+        &_warrap {
           padding: 24px 16px 40px 16px;
-          &_content{
+          &_content {
             margin: 0 auto;
-            &_group{
+            &_group {
               max-width: 343px;
               margin: auto;
-              &_submit-btn{
+              &_submit-btn {
                 margin-top: 24px;
                 background-color: rgb(117, 211, 235);
-                border: 1px solid rgb(117, 211,235);
+                border: 1px solid rgb(117, 211, 235);
                 display: block;
                 width: 100%;
                 line-height: 48px;
@@ -59,7 +59,7 @@ body{
         }
       }
     }
-    &_footer{
+    &_footer {
       width: 456px;
       margin: 0 auto;
       position: absolute;
@@ -68,20 +68,20 @@ body{
       z-index: 1;
       padding: 40px 0;
       text-align: center;
-      &_logo-text{
+      &_logo-text {
         margin-top: 8px;
         font-size: 13px;
       }
     }
   }
 
-  .icon_imgHead{
+  .icon_imgHead {
     height: 49px;
     width: 185px;
     margin-top: 40px;
   }
 
-  .icon_imgRight{
+  .icon_imgRight {
     display: block;
     color: #333;
     width: 97px;
@@ -89,30 +89,30 @@ body{
     margin: 40px auto 0;
   }
 
-  a{
-    width: 185px;
-    height: 49px;
-    line-height: 49px;
-    text-decoration: none;
-  }
+  // a {
+  //   width: 185px;
+  //   height: 49px;
+  //   line-height: 49px;
+  //   text-decoration: none;
+  // }// 他のファイルにも反映されてビューが崩れてしまうため
 
-  .clearfix{
+  .clearfix {
     margin: 56px 180px 0 0;
   }
-  .active{
+  .active {
     font-size: 15px;
     color: rgb(117, 211, 235);
     border-bottom: 3px solid;
     position: absolute;
   }
 
-  .Form_info{
+  .Form_info {
     margin-top: 24px;
-    &_name{
+    &_name {
       font-size: 13px;
       font-weight: 600;
     }
-    &_require{
+    &_require {
       background-color: red;
       margin: 0 0 0 8px;
       padding: 2px 4px;
@@ -121,7 +121,7 @@ body{
       font-size: 12px;
       vertical-align: top;
     }
-    &_index{
+    &_index {
       margin-top: 8px;
       height: 30px;
       width: 100%;
@@ -132,75 +132,75 @@ body{
       line-height: 1.5;
       font-size: 16px;
     }
-    &_index-two{
+    &_index-two {
       height: 45px;
       width: calc(50% - 7px);
       margin: 0 auto;
       border: 1px solid #ccc;
     }
-    &_text{
+    &_text {
       font-size: 13px;
       line-height: 1.5;
       margin: 10px 30px 10px 0;
       opacity: 0.5;
     }
-    &_id-left{
+    &_id-left {
       font-weight: bold;
     }
-    &_id-info{
+    &_id-info {
       font-size: 13px;
     }
-    &_select_years{
+    &_select_years {
       width: 76px;
       display: inline-block;
       margin-top: 8px;
       position: relative;
-      background: white;   
+      background: white;
     }
-    &_times{
+    &_times {
       margin-top: 8px;
       line-height: 1.5;
       color: #888;
     }
   }
 
-  .has_error_test{
+  .has_error_test {
     margin-bottom: 15px;
   }
 
-  .Checkbox_default{
+  .Checkbox_default {
     margin-right: 120px;
   }
-  .icon_check{
+  .icon_check {
     height: 20px;
     width: 20px;
     position: absolute;
   }
 
-  .reveal_password{
+  .reveal_password {
     font-size: 14px;
     padding: 5px 8px 0 30px;
   }
 
-  .has_error{
+  .has_error {
     color: red;
     line-height: 1.5;
     font-size: 14px;
     margin-right: 106px;
-    &_mail{
+    &_mail {
       color: red;
       line-height: 1.5;
       font-size: 14px;
       margin-right: 95px;
     }
-      &_password{
-        color: red;
-        line-height: 1.5;
-        font-size: 14px;
-        margin-right: 120px;
-      }
+    &_password {
+      color: red;
+      line-height: 1.5;
+      font-size: 14px;
+      margin-right: 120px;
+    }
   }
-  .fa.fas.fa-chevron-down{
+  .fa.fas.fa-chevron-down {
     right: 12px;
     position: absolute;
     top: 50%;
@@ -208,7 +208,7 @@ body{
     font-size: 13px;
     color: #888;
   }
-  .Years{
+  .Years {
     padding: 0 10px;
     position: relative;
     z-index: 2;
@@ -221,12 +221,13 @@ body{
     line-height: 1.5;
     cursor: pointer;
   }
-  .japan-select{
+  .japan-select {
     margin: 0 2px;
   }
-  img{
-    border: 0;
-    height: 52px;
-    margin-top: 40px;
-  }
+
+  // img {
+  //   border: 0;
+  //   height: 52px;
+  //   margin-top: 40px;
+  // }// 他のファイルにも反映されてビューが崩れてしまうため
 }

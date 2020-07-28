@@ -2,7 +2,7 @@
   .Header__inner
     .Header__logo-search
       .Header__logo
-        = link_to image_tag("/assets/logo.png", alt: "furima", class: "Header__logo-inner"), "#"
+        = link_to image_tag("/images/logo.png", alt: "furima", class: "Header__logo-inner"), "#"
       .Search
         = form_with(url: "#", method: :get, class: "Header__search-inner") do |f|
           .Search__box
@@ -59,26 +59,27 @@
           = link_to "/", class: "Dropdwn__list-top" do
             ブランド
         .Header__user-log
-          = link_to "/", class: "Header__list-right" do
-            ログイン
-          = link_to "/", class: "Header__list-right" do
-            新規登録画面
+          - if user_signed_in?
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Header__list-right"
+          - else
+            = link_to "ログイン", new_user_session_path, class: "Header__list-right"
+            = link_to "新規登録画面", new_user_registration_path, class: "Header__list-right"
 .Main
-  = image_tag("/assets/bg-mainVisual-pict_pc.jpg", size: "1445x550", alt: "フリマアプリ", class: "Main__img")
+  = image_tag("bg-mainVisual-pict_pc.jpg", size: "1445x550", alt: "フリマアプリ", class: "Main__img")
   .Main__inner
     .Main__box
       %h1.Main__head 人生を変えるフリマアプリ
       %p.Main__subtitle FURIMAはだれでもかんたんに出品・購入できる
       %p フリマアプリです
     .Main__download
-      = link_to image_tag("/assets/applestore.svg", alt: "apple", class: "Main__apple"), "#"
-      = link_to image_tag("/assets/googleplay.svg", alt: "google", class: "Main__google"), "#"
+      = link_to image_tag("/images/applestore.svg", alt: "apple", class: "Main__apple"), "#"
+      = link_to image_tag("/images/googleplay.svg", alt: "google", class: "Main__google"), "#"
 
 .Middle
   %h1.Middle__title FURIMAが選ばれる3つの理由
   .Middle__inner
     .Middle__card
-      = image_tag("/assets/pict-reason-01.jpg", size: "300x300", alt: "フリマアプリ", class: "Middle__img")
+      = image_tag("pict-reason-01.jpg", size: "300x300", alt: "フリマアプリ", class: "Middle__img")
       %span.Middle__num 1
       .Middle__box
         .Middle__text
@@ -86,7 +87,7 @@
           ですぐに出品
         .Middele__text-inner スマホで入力するだけで簡単に出品できる！
     .Middle__card
-      = image_tag("/assets/pict-reason-02.jpg", size: "300x300", alt: "フリマアプリ", class: "Middle__img")
+      = image_tag("pict-reason-02.jpg", size: "300x300", alt: "フリマアプリ", class: "Middle__img")
       %span.Middle__num 2
       .Middle__box
         .Middle__box-inner
@@ -95,7 +96,7 @@
           で使いやすい
         .Middele__text-inner めんどくさい入力は必要なく、検索も購入もスムーズ！
     .Middle__card
-      = image_tag("/assets/pict-reason-03.jpg", size: "300x300", alt: "フリマアプリ", class: "Middle__img")
+      = image_tag("pict-reason-03.jpg", size: "300x300", alt: "フリマアプリ", class: "Middle__img")
       %span.Middle__num 3
       .Middle__box
         .Middle__text
@@ -104,7 +105,7 @@
         .Middele__text-inner 最大3%でお得に出品&購入！
 
 .Section
-  = image_tag("/assets/bg-topMiddleDl-pict.jpg", size: "1445x450", alt: "フリマアプリ", class: "Section__img")
+  = image_tag("bg-topMiddleDl-pict.jpg", size: "1445x450", alt: "フリマアプリ", class: "Section__img")
   .Section__inner
     .Section__box
       %h1.Section__head 会員数日本一位
@@ -112,25 +113,25 @@
       %p 出品・購入回数も業界最多です！
       %p ほしかったあの商品に出会えるかもしれません。
     .Section__download
-      = link_to image_tag("/assets/applestore.svg", alt: "apple", class: "Section__apple"), "#"
-      = link_to image_tag("/assets/googleplay.svg", alt: "google", class: "Section__google"), "#"
+      = link_to image_tag("applestore.svg", alt: "apple", class: "Section__apple"), "#"
+      = link_to image_tag("googleplay.svg", alt: "google", class: "Section__google"), "#"
 
 .Middle
   %h1.Middle__title FURIMAの特徴
   .Middle__inner
     .Middle__card
-      = image_tag("/assets/icon-01.png", size: "250x300", alt: "フリマアプリ", class: "Middle__img")
+      = image_tag("icon-01.png", size: "250x300", alt: "フリマアプリ", class: "Middle__img")
       .Middle__box
         .Middle__text 簡単に売り買いできる
         .Middele__text-inner スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
     .Middle__card
-      = image_tag("/assets/icon-03.png", size: "250x300", alt: "フリマアプリ", class: "Middle__img")
+      = image_tag("icon-03.png", size: "250x300", alt: "フリマアプリ", class: "Middle__img")
       .Middle__box
         .Middle__box-inner
         .Middle__text 売上金は即日振込みに対応
         .Middele__text-inner 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
     .Middle__card
-      = image_tag("/assets/icon-04.png", size: "250x300", alt: "フリマアプリ", class: "Middle__img")
+      = image_tag("icon-04.png", size: "250x300", alt: "フリマアプリ", class: "Middle__img")
       .Middle__box
         .Middle__text 様々な支払いに対応
         .Middele__text-inner お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。

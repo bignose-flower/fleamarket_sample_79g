@@ -17,13 +17,19 @@ Things you may want to cover:
 <img width="633" alt="スクリーンショット 2020-07-22 19 25 52" src="https://user-images.githubusercontent.com/66852865/88165808-3f060d80-cc51-11ea-8d78-de5ee6dd07d6.png">
 
 ## Users
-| Column                | Type    | Options                  |
-| :-------------------- | ------- | ------------------------ |
-| id                    | integer |                          |
-| nickname              | string  | null:false               |
-| email                 | email   | null:false               |
-| password              | string  | null:false, unique: true |
-| password_configration | string  | null:false, unique:true  |
+| Column                | Type       | Options                  |
+| :-------------------- | -----------| ------------------------ |
+| id                    | integer    |                          |
+| nickname              | string     | null:false               |
+| email                 | email      | null:false               |
+| password              | string     | null:false, unique: true |
+| password_configration | string     | null:false, unique:true  |
+| first_name            | string     | null:false               |
+| family_name           | string     | null:false               |
+| furigana_first        | string     | null:false               |
+| furigana_family       | string     | null:false               |
+| birthday              | date       | null:false               |
+| user_id               | references | foreign_key:true         |
 
 ### association
 has_one :account
@@ -48,26 +54,14 @@ has_many :items
 ### association
 belongs_to :user
 
-## Accounts
-| Column          | Type       | Options          |
-| --------------- | ---------- | ---------------- |
-| id              | integer    |                  |
-| first_name      | string     | null:false       |
-| family_name     | string     | null:false       |
-| furigana_first  | string     | null:false       |
-| furigana_family | string     | null:false       |
-| birthday        | date       | null:false       |
-| user_id         | references | foreign_key:true |
-
-### association
-belongs_to :user
 
 ## Credits
-| Column  | Type       | Options          |
-| ------- | ---------- | ---------------- |
-| id      | integer    |                  |
-| user_id | references | foreign_key:true |
-| card_id | string     |                  |
+| Column      | Type       | Options          |
+| ----------- | ---------- | ---------------- |
+| id          | integer    |                  |
+| user_id     | references | foreign_key:true |
+| customer_id | string     |                  |
+| card_id     | string     |                  |
 
 ### asscociation
 belongs_to :user

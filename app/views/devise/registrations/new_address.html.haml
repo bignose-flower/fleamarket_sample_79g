@@ -19,13 +19,13 @@
                 送付先氏名（全角）
               %span.Form_info_require
                 必須
-            = f.text_field :shipping_first_name, class: "Form_info_index-two", placeholder: "例）鈴木"
-            = f.text_field :shipping_family_name, class: "Form_info_index-two", placeholder: "例）太郎"
+            = f.text_field :shipping_family_name, class: "Form_info_index-two", placeholder: "例）鈴木"
+            = f.text_field :shipping_first_name, class: "Form_info_index-two", placeholder: "例）太郎"
             %ul.has_error_test
               %li.has_error
-                = @address.errors.full_messages_for(:shipping_first_name).first
-              %li.has_error
                 = @address.errors.full_messages_for(:shipping_family_name).first
+              %li.has_error
+                = @address.errors.full_messages_for(:shipping_first_name).first
             .Form_info
               %label.Form_info_name
                 送付先氏名(全角)

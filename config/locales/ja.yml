@@ -13,6 +13,11 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
+        first_name: 名
+        family_name: 性
+        hurigana_first: 名
+        hurigana_family: 性
+        birthday: 生年月日
       address:
         shipping_first_name: 名
         shipping_family_name: 性
@@ -24,12 +29,17 @@ ja:
         address: 番地
         others: マンション名、その他部屋番号など
         phone_number: 電話番号
-      account:
-        first_name: 名
-        family_name: 性
-        hurigana_first: 名
-        hurigana_family: 性
-        birthday: 生年月日
+      item:
+        name: 商品名
+        description: 説明文
+        price: 値段
+        item_status: 状態
+        owner_area: 発送元
+        shipping_fee: 送料
+        shipping_date: 発送日数
+        images: 商品画像
+      image:
+        image: 商品画像
   date:
     abbr_day_names:
     - 日

@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load", function () {
   $(function () {
     function appendOption(category) {
-      var html = `<option value="${category.name}" data-category="${category.id}">${category.category_name}</option>`;
+      var html = `<option value="${category.id}" data-category="${category.id}">${category.category_name}</option>`;
       return html;
     }
     function appendChidrenBox(insertHTML) {

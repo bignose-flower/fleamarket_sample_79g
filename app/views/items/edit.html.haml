@@ -1,0 +1,218 @@
+= form_with model: @item, method: :patch, local: true do |f|
+  .Sell
+    .Sell_warrap
+      .Sell_warrap_index
+        .Sell_warrap_index_header
+          =link_to image_tag("/images/logo.png",alt:"flema",class:"Sell_warrap_index_header_icon-img"),"/"
+        .Sell_warrap_index_main
+          .Sell_warrap_index_main_center
+            .Sell_warrap_index_main_center_navi
+            .Sell_warrap_index_main_center_content
+              .Sell_warrap_index_main_center_content_box
+                .Sell_warrap_index_main_center_content_box_body
+                  .Sell_warrap_index_main_center_content_box_body_photos
+                    .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+                      %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+                        出品画像
+                      %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+                        必須
+                  %p.Sell_warrap_index_main_center_content_box_body_up
+                    １枚以上アップロードしてください
+                  .Sell_warrap_index_main_center_content_box_body_imgs
+                    .Sell_warrap_index_main_center_content_box_body_imgs_warraps
+                      .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs
+                        .Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in
+                          %label.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label
+                            #image-box
+                            %p.Sell_warrap_index_main_center_content_box_body_imgs_warraps_indexs_in_label_info
+                              クリックしてファイルをアップロード
+            %hr.Sell_warrap_index_main_center_border
+            .Sell_warrap_index_main_center_content
+              .Sell_warrap_index_main_center_content_box
+                .Sell_warrap_index_main_center_content_box_body
+                  .Sell_warrap_index_main_center_content_box_body_photos
+                    .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+                      %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+                        商品名
+                      %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+                        必須
+                  .Sell_warrap_index_main_center_content_box_body_contents
+                    .Sell_warrap_index_main_center_content_box_body_contents_filed
+                      = f.text_field :name, placeholder: "40文字まで", class: "Sell_warrap_index_main_center_content_box_body_contents_filed_text", value: "#{@item.name}"
+                      = @item.errors.full_messages_for(:name).first
+                  .Sell_warrap_index_main_center_content_box_body_photos_popup
+
+              .Sell_warrap_index_main_center_content_box
+                .Sell_warrap_index_main_center_content_box_body
+                  .Sell_warrap_index_main_center_content_box_body_photos
+                    .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+                      %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+                        商品説明
+                      %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+                        必須
+                  .Sell_warrap_index_main_center_content_box_body_contents
+                    .Sell_warrap_index_main_center_content_box_body_contents_filed
+                      = f.text_area :description,rows: "7",placeholder: "商品の説明（必須 1,000文字以内）\r\n（色、素材、重さ、定価、注意点など）\r\n\r\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\r\n", class: "Sell_warrap_index_main_center_content_box_body_contents_filed_area", value: "#{@item.description}"
+                      = @item.errors.full_messages_for(:description).first
+                  .Sell_warrap_index_main_center_content_box_body_info
+                    %span.Sell_warrap_index_main_center_content_box_body_info_num
+                      0/1000
+                  .Sell_warrap_index_main_center_content_box_body_photos_popup
+
+            %hr.Sell_warrap_index_main_center_border
+            .Sell_warrap_index_main_center_content
+              %p.Sell_warrap_index_main_center_content_show
+                商品詳細
+              .Sell_warrap_index_main_center_content_box
+                .Sell_warrap_index_main_center_content_box_body__js
+                  .Sell_warrap_index_main_center_content_box_body_photos__categroy
+                    .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+                      %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+                        カテゴリー
+                      %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+                        必須
+                    .Sell_warrap_index_main_center_content_box_body_contents
+                      .Sell_warrap_index_main_center_content_box_body_contents_filed
+                        = f.collection_select :category_id, @category_parent_array, :id, :category_name, {selected: @parent.id}, {class: 'Sell_warrap_index_main_center_content_box_body_contents_filed_category', id: 'parent_category'}
+                        = @item.errors.full_messages_for(:category_id).first
+                    - if @child
+                      #child_wrapper.Sell_warrap_index_main_center_content_box_body_contents
+                        .Sell_warrap_index_main_center_content_box_body_contents_filed
+                          %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category#child_category{name: "category_id"}
+                            - @children.each do |child|
+                              %option{value: "#{child.id}", data: {category: "#{child.id}"}}
+                                = child.category_name
+                                - if child.id == @child.id
+                                  %option{value: "#{child.id}", data: {category:"#{child.id}"}, selected: child.id}
+                                    = child.category_name
+                    - if @grandchild
+                      #grandchild_wrapper.Sell_warrap_index_main_center_content_box_body_contents
+                        .Sell_warrap_index_main_center_content_box_body_contents_filed
+                          %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category#grandchild_category{name: "category_id"}
+                            - @grandchildren.each do |grandchild|
+                              %option{value: "#{grandchild.id}", data: {category: "#{grandchild.id}"}}
+                                = grandchild.category_name
+                                - if grandchild.id == @grandchild.id
+                                  %option{value: "#{grandchild.id}", data: {category:"#{grandchild.id}"}, selected: grandchild.id}
+                                    = grandchild.category_name
+                      -# - if @grandchild
+                      -#   .Sell_warrap_index_main_center_content_box_body_contents_filed
+                      -#   #grandchild_wrapper.Sell_warrap_index_main_center_content_box_body_contents
+                      -#     .Sell_warrap_index_main_center_content_box_body_contents_filed
+                      -#       %select.Sell_warrap_index_main_center_content_box_body_contents_filed_category#child_category{name:category_id}
+                      -#         - @grandchildren.each do |grandchild|
+                      -#           %option{value: "#{grandchild.category_name}", data: {category:"#{grandchild.id}"}}
+                      -#             = category.category_name
+                      -#           - if grandchild.id == @grandchild.id
+                      -#             %option{value: "#{grandchild.category_name}", data: {category:"#{grandchild.id}"}, selected}
+                    .Sell_warrap_index_main_center_content_box_body_photos_popup
+            -#   .Sell_warrap_index_main_center_content_box
+            -#     .Sell_warrap_index_main_center_content_box_body
+            -#       .Sell_warrap_index_main_center_content_box_body_photos
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+            -#           %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_any
+            -#             ブランド
+            -#           %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_any_note
+            -#             任意
+            -#       .Sell_warrap_index_main_center_content_box_body_contents
+            -#         .Sell_warrap_index_main_center_content_box_body_contents_filed
+            -#           = f.collection_select :brand_id, Brand.all, :id, :brand_name,{}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_text", placeholder: "例) シャネル", , value: "#{@item.brand}"}
+            -#   .Sell_warrap_index_main_center_content_box
+            -#     .Sell_warrap_index_main_center_content_box_body
+            -#       .Sell_warrap_index_main_center_content_box_body_photos
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+            -#           %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+            -#             商品状態
+            -#           %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+            -#             必須
+            -#       .Sell_warrap_index_main_center_content_box_body_contents
+            -#         .Sell_warrap_index_main_center_content_box_body_contents_filed
+            -#           = f.collection_select :status_id, Status.all, :id, :name, {include_blank: "---"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category", value: "#{@status}"}
+            -#           = @item.errors.full_messages_for(:status_id).first
+            -#       .Sell_warrap_index_main_center_content_box_body_photos_popup
+
+            -# %hr.Sell_warrap_index_main_center_border
+            -# .Sell_warrap_index_main_center_content
+            -#   %p.Sell_warrap_index_main_center_content_show
+            -#     配送について
+            -#   .Sell_warrap_index_main_center_content_box
+            -#     .Sell_warrap_index_main_center_content_box_body
+            -#       .Sell_warrap_index_main_center_content_box_body_photos
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+            -#           %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+            -#             配送料の負担
+            -#           %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+            -#             必須
+            -#         .Sell_warrap_index_main_center_content_box_body_contents
+            -#           .Sell_warrap_index_main_center_content_box_body_contents_filed
+            -#             = f.collection_select :fee_id, Fee.all, :id, :name, {selected: shippign}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
+            -#             = @item.errors.full_messages_for(:fee_id).first
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_popup
+
+            -#   .Sell_warrap_index_main_center_content_box
+            -#     .Sell_warrap_index_main_center_content_box_body
+            -#       .Sell_warrap_index_main_center_content_box_body_photos
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+            -#           %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+            -#             発送元の地域
+            -#           %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+            -#             必須
+            -#         .Sell_warrap_index_main_center_content_box_body_contents
+            -#           .Sell_warrap_index_main_center_content_box_body_contents_filed
+            -#             = f.collection_select :owner_area, Prefecture.all, :id, :name, {selected: "#{current_user.address.prefecture.id}"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_popup
+            -#           = @item.errors.full_messages_for(:owner_area).first
+
+            -#   .Sell_warrap_index_main_center_content_box
+            -#     .Sell_warrap_index_main_center_content_box_body
+            -#       .Sell_warrap_index_main_center_content_box_body_photos
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_fontFamily
+            -#           %label.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex
+            -#             発送までの日数
+            -#           %span.Sell_warrap_index_main_center_content_box_body_photos_fontFamily_ex_note
+            -#             必須
+            -#         .Sell_warrap_index_main_center_content_box_body_contents
+            -#           .Sell_warrap_index_main_center_content_box_body_contents_filed
+            -#             = f.collection_select :shipping_id, Shipping.all, :id, :name, {include_blank: "---"}, {class: "Sell_warrap_index_main_center_content_box_body_contents_filed_category"}
+            -#             = @item.errors.full_messages_for(:shipping_id).first
+            -#         .Sell_warrap_index_main_center_content_box_body_photos_popup
+
+            -# %hr.Sell_warrap_index_main_center_border
+            -# .Sell_warrap_index_main_center_price
+            -#   %p.Sell_warrap_index_main_center_price_show
+            -#     価格（¥300~9,999,999）
+            -#   .Sell_warrap_index_main_center_price_box
+            -#     .Sell_warrap_index_main_center_price_box_body
+            -#       .Sell_warrap_index_main_center_price_box_body_photos
+            -#         .Sell_warrap_index_main_center_price_box_body_photos_fontFamily
+            -#           %label.Sell_warrap_index_main_center_price_box_body_photos_fontFamily_ex
+            -#             販売価格
+            -#           %span.Sell_warrap_index_main_center_price_box_body_photos_fontFamily_ex_note
+            -#             必須
+            -#       %span.Sell_warrap_index_main_center_price_box_body_doll
+            -#         ¥
+            -#       .Sell_warrap_index_main_center_price_box_body_right
+            -#         .Sell_warrap_index_main_center_price_box_body_right_in
+            -#           = f.text_field :price, placeholder: "0", class: "Sell_warrap_index_main_center_price_box_body_right_in_num"
+            -#           = @item.errors.full_messages_for(:price).first
+            -#     .Sell_warrap_index_main_center_price_box_body
+            -#       .Sell_warrap_index_main_center_price_box_body_tax
+            -#         販売手数料（10%）
+            -#       %span.Sell_warrap_index_main_center_price_box_body_solid
+            -#         ー
+            -#     %hr.Sell_warrap_index_main_center_border
+            -#     .Sell_warrap_index_main_center_price_box_body
+            -#       .Sell_warrap_index_main_center_price_box_body_tax
+            -#         販売利益
+            -#       %span.Sell_warrap_index_main_center_price_box_body_solid
+                    ー
+                = f.hidden_field :seller_id, {value: current_user.id}
+            .Sell_warrap_index_main_center_ex
+              = f.submit "出品する" ,class: "Sell_warrap_index_main_center_ex_do"
+              .Sell_warrap_index_main_center_ex_back
+                = link_to "/", class: "Sell_warrap_index_main_center_ex_back_in" do
+                  もどる
+        .Sell_warrap_index_footer
+          =link_to image_tag("/images/logo-white.png",alt:"flema",class:"Sell_warrap_index_footer_img"),"/"
+          %p.Sell_warrap_index_footer_icon
+            ©︎Furima, Inc

@@ -58,11 +58,44 @@ class ItemsController < ApplicationController
     @status = Status.find(@item.status_id).name
     @fee = Fee.find(@item.fee_id).name
     @next_item = Item.where(id: (params[:id].to_i + 1))
-    @prev_item = Item.where(id: (params[:id].to_i - 1))
+    @prev_item = Item.where(id: (params[:id].to_i 1))
   end
 
 
   def edit
+    @category_parent_array = Category.where(ancestry: nil)
+    @owner_place = User.find(@item.seller_id).address.prefecture.name
+    @shipping = Shipping.find(@item.shipping_id).name
+    @status = Status.find(@item.status_id).name
+    @fee = Fee.find(@item.fee_id).name
+
+    if @item.category.has_parent?
+      if @item.category.parent.has_parent?
+        @grandchild = @item.category
+        @child = @item.category.parent
+        @parent = @item.category.parent.parent
+        @grandchildren = @child.children
+        @children = @parent.children
+      else
+        @child = @item.category
+        @parent = @item.category.parent
+        @children = @parent.children
+      end
+    else
+      @parent = @item.category
+    end
+  end
+
+  def update
+    @item = Item.new(item_params)
+    binding.pry
+    if @item.save
+      redirect_to items_path(@item)
+    else
+      @item = Item.find(params[:id])
+      @category_parent_array = Category.where(ancestry: nil)
+      redirect_to action: "edit"
+    end
   end
   
   def destroy
@@ -70,7 +103,10 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :status_id, :fee_id, :owner_area, :shipping_id, :seller_id, :category_id, :brand_id, images_attributes: [:image, :_destroy, :id])
+    if params[:category_id].present?
+      params[:item][:category_id] = params[:category_id]
+    end
+    params.require(:item).permit(:name, :description, :category_id)
   end
 
   def set_item
